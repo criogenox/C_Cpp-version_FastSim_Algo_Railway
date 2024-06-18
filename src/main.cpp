@@ -29,7 +29,7 @@ int main() {
     // -------------------------------------------------------------------------
     const auto startTime = ::GetTickCount();
     double Tx = 0.0, Ty = 0.0;
-    constexpr double ux = 1, uy = -2.0, fx = 2.0, fy = 4.0, mx = 5.0, my = 5.0;
+    constexpr double ux = 1.0, uy = -2.0, fx = 2.0, fy = 4.0, mx = 5.0, my = 5.0;
     const Inputs args{ux, uy, fx, fy, mx, my, Tx, Ty};
     const auto p = std::make_unique<Fastsim>(args);
     // ---
