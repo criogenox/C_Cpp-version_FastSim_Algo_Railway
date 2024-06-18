@@ -120,8 +120,8 @@ INSTANTIATE_TEST_SUITE_P(FastSimAlgo, ForcesFxFy,
                                            std::vector<double>{0.453, 0.8299}));
 
 int main(int argc, char **argv) {
-    std::cout << "\033[1;31m# C++ ver. | FASTSIM ALGORITHM FOR ROLLING CONTACT" << std::endl;
-    std::cout << "\033[1;31m# ================================================" << std::endl;
+    std::cout << "\033[1;38;5;201m# C++ ver. | FASTSIM ALGORITHM FOR ROLLING CONTACT" << std::endl;
+    std::cout << "\033[2;38;5;201m# ================================================" << std::endl;
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }
