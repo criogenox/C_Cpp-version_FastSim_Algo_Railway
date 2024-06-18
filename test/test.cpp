@@ -114,10 +114,10 @@ TEST_P(ForcesFxFy, TestCase) {
 
 INSTANTIATE_TEST_SUITE_P(FastSimAlgo, ForcesFxFy,
                          ::testing::Values(std::vector<double>{0.0, 0.1843},
-                             std::vector<double>{0.0, 0.1850},
-                             std::vector<double>{0.5720, 0.1838},
-                             std::vector<double>{0.5684, 0.1857},
-                             std::vector<double>{0.453, 0.8299}));
+                                           std::vector<double>{0.0, 0.1850},
+                                           std::vector<double>{0.5720, 0.1838},
+                                           std::vector<double>{0.5684, 0.1857},
+                                           std::vector<double>{0.453, 0.8299}));
 
 int main(int argc, char **argv) {
     std::cout << "\033[1;31m# C++ ver. | FASTSIM ALGORITHM FOR ROLLING CONTACT" << std::endl;
