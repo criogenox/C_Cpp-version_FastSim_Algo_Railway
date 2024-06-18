@@ -2,7 +2,6 @@
 *.d
 
 # Build scripts
-*.txt
 *.txt.user
 *.cmake
 *.json
