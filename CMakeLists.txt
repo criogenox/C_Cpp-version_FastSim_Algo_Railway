@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 3.28)
+#set(CMAKE_CXX_COMPILER "/usr/bin/clang++" CACHE STRING "C++ compiler" FORCE)
 set(PROJECT_NAME "FastSim")
 project(${PROJECT_NAME} VERSION 1.0.0 LANGUAGES CXX)
 set(default_build_type "Release")

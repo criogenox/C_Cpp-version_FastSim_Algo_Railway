@@ -1,8 +1,6 @@
 #include <gmock/gmock-matchers.h>
-#include "fastsim.h"
 #include <gtest/gtest.h>
-
-using ::testing::Pointwise;
+#include "fastsim.h"
 
 auto GetTickCount() {
     return std::chrono::steady_clock::now();
