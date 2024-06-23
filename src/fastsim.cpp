@@ -1,5 +1,7 @@
 #include "fastsim.h"
 
+using namespace Helper;
+
 Subroutine::Subroutine(const Inputs &args): args_(args) {
 }
 
@@ -12,20 +14,20 @@ void Subroutine::sr_v1(const double dy, const double y) const {
 
     while (-(x + B) < 0.0) {
         const double Sy = args_.uy + args_.fy * (x0 + x) / 2.0;
-        Px = Helper::pressure(Px, Sx, x0, x);
-        Py = Helper::pressure(Py, Sy, x0, x);
+        Px = pressure(Px, Sx, x0, x);
+        Py = pressure(Py, Sy, x0, x);
 
         if (const double P = std::sqrt(std::pow(Px, 2) + std::pow(Py, 2)) /
                              (1.0 - std::pow(y, 2) - std::pow(x, 2)); P > 1.0) {
             Px = Px / P;
             Py = Py / P;
-            args_.Tx = Helper::force(args_.Tx, AR, Px);
-            args_.Ty = Helper::force(args_.Ty, AR, Py);
+            args_.Tx = force(args_.Tx, AR, Px);
+            args_.Ty = force(args_.Ty, AR, Py);
             x0 = x;
             x = x - dx;
         } else {
-            args_.Tx = Helper::force(args_.Tx, AR, Px);
-            args_.Ty = Helper::force(args_.Ty, AR, Py);
+            args_.Tx = force(args_.Tx, AR, Px);
+            args_.Ty = force(args_.Ty, AR, Py);
             x0 = x;
             x = x - dx;
         }
