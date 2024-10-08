@@ -1,5 +1,5 @@
 
-## Preliminary Info (_...description in progress_)
+## Preliminary Info (_...description & update in progress_)
 
 <div style="display: flex; flex-direction: row; align=center">
 
