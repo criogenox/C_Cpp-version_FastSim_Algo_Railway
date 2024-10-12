@@ -5,9 +5,9 @@
   <a align="center">
     <img src="https://github.com/criogenox/D-Technical-Railway-Data-Viewer-from-SQLitedb/assets/53323058/55f51d41-fda0-4161-881c-8144ad315c00.png" alt="Logo" width="500">
   </a>
-  <h3 align="center">Railway applications &#x300A; D &#x300B;</h3>
+  <h3 align="center">Railway applications &#x300A; C &#x300B;</h3>
   <p align="center">
-    Database Technical Info Viewer
+    Kalker's FastSim algorithm C++ library
   </p>
 </div>
 
@@ -16,7 +16,7 @@
 <div align="justify">
   <p>
   
-> `C++` application providing a comprehensive graphical interface for managing and visualizing data from a dynamic sql table through customizable dockable windows.
+> `C++` version of Kalker's FastSim algorithm, designed for simulating rolling contact dynamics based on the simplified theory. Despite the time elapsed since its development,it efficiently calculates the forces acting on contact patch providing valuable insights for engineering simulations.
 
 `Key Features:`
 - Image viewing: display formats with zoom and pan capabilities.
