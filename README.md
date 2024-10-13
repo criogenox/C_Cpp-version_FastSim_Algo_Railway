@@ -52,7 +52,7 @@
 - It includes timing functionality to measure the computation time for each test case.
 
 `Error Handling:`
-- The parameterized implementation ensures achieving the complete set of tests even in the event of an invalid test result.
+- The parameterized implementation ensures the execution of the complete tests set, even in the event of an invalid test result.
   
 > CMake configuration: added several targets for a specific role, enabling better management of source files, libraries, and testing processes.
 
