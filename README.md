@@ -74,7 +74,7 @@
 
 <div align="justify"> 
   <!-- <img align="right" src="https://user-images.githubusercontent.com/53323058/230650942-4c2e0ad4-2d52-46fe-aa67-8860c642e5f6.png" width="500"> -->
-<img align="right" src="https://github.com/criogenox/D-Technical-Railway-Data-Viewer-from-SQLitedb/assets/53323058/8f6aca0c-716b-4f33-9a34-3e455d366d25.png">
+<img align="right" src="https://github.com/criogenox/C_Cpp-version_FastSim_Algo_Railway/assets/53323058/89440370-9007-457c-b303-2a713ddc8379.png">
    </p>
        <p align="center">
 Full functionalities in use:  clickable table index, independent views with their corresponding dock info.
@@ -90,5 +90,4 @@ Distributed under the MIT License. See [LICENSE.txt][license-url] for more infor
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [linkedin-shield]: https://user-images.githubusercontent.com/53323058/230575198-fa1acbf4-8f82-4d8e-b245-3979276bc240.png
 [linkedin-url]: https://www.linkedin.com/in/criogenox/
-[qtdarktheme-url]: https://github.com/keshav-sahu7/qt-dark-theme
-[license-url]: https://github.com/criogenox/D-Technical-Railway-Data-Viewer-from-SQLitedb/tree/main?tab=MIT-1-ov-file
+[license-url]: https://github.com/criogenox/C_Cpp-version_FastSim_Algo_Railway/tree/master?tab=MIT-1-ov-file
