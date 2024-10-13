@@ -19,7 +19,7 @@
 > `C++` version of Kalker's FastSim algorithm, designed for simulating rolling contact dynamics based on the simplified theory. Despite the time elapsed since its development, it efficiently calculates the forces acting on contact patch providing valuable insights for engineering simulations.
 
 `Why this repo?:`
-- To provide C++ of a helpful contact algorithm, that regardless of being classic simulation code, noone shares it.
+- In order to provide a C++ version of a helpful contact algorithm, that regardless of being classic simulation code, no one shares it.
    
    </p>
        <p align="right">
