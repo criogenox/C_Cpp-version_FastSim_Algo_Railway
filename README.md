@@ -73,7 +73,7 @@
 
 <div align="justify"> 
   <!-- <img align="right" src="https://user-images.githubusercontent.com/53323058/230650942-4c2e0ad4-2d52-46fe-aa67-8860c642e5f6.png" width="500"> -->
-<img align="right" src="https://github.com/criogenox/C_Cpp-version_FastSim_Algo_Railway/assets/53323058/89440370-9007-457c-b303-2a713ddc8379.png">
+<img align="center" src="https://github.com/criogenox/C_Cpp-version_FastSim_Algo_Railway/assets/53323058/89440370-9007-457c-b303-2a713ddc8379.png">
    </p>
        <p align="center">
 Full functionalities in use:  clickable table index, independent views with their corresponding dock info.
