@@ -38,19 +38,6 @@
 
 <div align="justify">
   <p>
-    
-> CMake configuration to building the application: several targets for a specific role, enabling better management of source files, libraries, and testing processes.
-
-`TARGET_SRC`
-- It compiles the entire source files of the project into an executable.
-
-`TARGET_LIB`
-- It creates a static library from the specified source files.
-- It is linked to the main program as entry point to test its funcionality
-
-`TARGET_TEST`
-- It compiles the test files enabling the run of unit tests according to the author's checking data.
-- It executes linked against the GoogleTest libraries (gtest_main, gmock_main) and the TARGET_LIB.
 
 > Google Test (gtest) C++ testing framework to carry out and handled correctly well-structured checks ensuring the code results reliability.
 
@@ -66,6 +53,19 @@
 
 `Error Handling:`
 - The parameterized implementation ensures achieving the complete set of tests even in the event of an invalid test result.
+  
+> CMake configuration to building the application: several targets for a specific role, enabling better management of source files, libraries, and testing processes.
+
+`TARGET_SRC`
+- It compiles the entire source files of the project into an executable.
+
+`TARGET_LIB`
+- It creates a static library from the specified source files.
+- It is linked to the main program as entry point to test its funcionality
+
+`TARGET_TEST`
+- It compiles the test files enabling the run of unit tests according to the author's checking data.
+- It executes linked against the GoogleTest libraries (gtest_main, gmock_main) and the TARGET_LIB.
    </p>
    <div>
 
