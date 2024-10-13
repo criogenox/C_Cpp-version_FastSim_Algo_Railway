@@ -39,6 +39,7 @@
 
 <div align="justify">
   <p>
+    
 > CMake configuration to building the application: several targets for a specific role, enabling better management of source files, libraries, and testing processes.
 
 `TARGET_SRC`
