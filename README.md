@@ -39,8 +39,7 @@
 
 <div align="justify">
   <p>
-
-> Dynamic creation of dock widget for displaying information related to a specified table.
+> CMake configuration to building the application: several targets for a specific role, enabling better management of source files, libraries, and testing processes.
 
 `TARGET_SRC`
 - It compiles the entire source files of the project into an executable.
@@ -52,7 +51,6 @@
 `TARGET_TEST`
 - It compiles the test files enabling the run of unit tests according to the author's checking data.
 - It executes linked against the GoogleTest libraries (gtest_main, gmock_main) and the TARGET_LIB.
-
    </p>
    <div>
 
