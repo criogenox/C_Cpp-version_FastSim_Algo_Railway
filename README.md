@@ -52,6 +52,21 @@
 `TARGET_TEST`
 - It compiles the test files enabling the run of unit tests according to the author's checking data.
 - It executes linked against the GoogleTest libraries (gtest_main, gmock_main) and the TARGET_LIB.
+
+> Google Test (gtest) C++ testing framework.
+
+`Parameterized Tests:`
+- It runs multiple test cases with input checking data provided by the original author. 
+- It uses ASSERT_NEAR macro to compare floating-point results with a specified tolerance.
+  
+`Setup and Teardown:`
+- A method is implemented to perform any necessary initialization before running the first test, and to improve the measure of time execution.
+
+`Benchmarking:`
+- It includes timing functionality to measure the computation time for each test case.
+
+`Error Handling:`
+- The parameterized implementation ensures achieving the complete set of tests even in the event of an invalid test result.
    </p>
    <div>
 
