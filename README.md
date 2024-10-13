@@ -73,7 +73,7 @@
 
 <div align="justify"> 
   <!-- <img align="right" src="https://user-images.githubusercontent.com/53323058/230650942-4c2e0ad4-2d52-46fe-aa67-8860c642e5f6.png" width="500"> -->
-<img align="center" src="https://github.com/criogenox/C_Cpp-version_FastSim_Algo_Railway/assets/53323058/89440370-9007-457c-b303-2a713ddc8379.png">
+<img align="center" src="https://github.com/criogenox/C_Cpp-version_FastSim_Algo_Railway/assets/53323058/41b73459-f5b6-4efe-b6f5-b74f9c42cdc9.png">
    </p>
        <p align="center">
 Test's full output: execution time, test tagging, and detailed results (especially when it fails)
