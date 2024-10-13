@@ -59,12 +59,32 @@
     <img class="img"src="https://github.com/criogenox/B_ECC-Cpp-version_plot-capabilities_noGUI/assets/53323058/2f5ceb09-8f4a-4064-a783-8018066c755e.png" alt="Logo" width="100" height="70"/>
     <img class="img"src="https://github.com/criogenox/B_ECC-Cpp-version_plot-capabilities_noGUI/assets/53323058/6870b0b2-403c-49da-b745-5714b08f4a73.png" alt="Logo" width="90" height="80"/>
     <img class="img"src="https://github.com/criogenox/B_ECC-Cpp-version_plot-capabilities_noGUI/assets/53323058/7f7c66db-97e3-49a1-92d9-df41500b54ae.png" alt="Logo" width="90" height="90"/>
+</div>
 
 ### Additional info
 
-* `Extensive` checking of instance deletion to ensure proper and effective resource management preventing memory leaks.
-* Widget `stylizing` by a modified theme based on the extremely helpful original contribution [QT DarkTheme][qtdarktheme-url].
-</div>
+<div align="justify">
+  <p>
+
+> Dynamic creation of dock widget for displaying information related to a specified table.
+
+`Functionalities:`
+- Checks for existing docks with the same name to prevent duplicates.
+- Restoration of closed docks to its previous geometry, keep from of creating a new ones.
+
+> Handling view size fitting in response to several resizing events (including image initial loading).
+
+`Functionality:`
+- Updates the view/scene size to fit the new dimensions generated due to mainwindow rescaling, dock's area/size changes or splitter movements.
+
+> Overriding of several mouse events for graphical managing of loaded images.
+
+`Functionalities:`
+- Handles mouse press events to dragging and panning (warning, inverted mouse buttons).
+- Focus zooming on cursor position disabling the vertical scrollbar to enhance zoom experience.
+- Handles double-click events to fit the scene within the view keeping the aspect ratio.
+   </p>
+   <div>
 
 ##  General view sample
 
