@@ -64,6 +64,7 @@
 
 * `Extensive` checking of instance deletion to ensure proper and effective resource management preventing memory leaks.
 * Widget `stylizing` by a modified theme based on the extremely helpful original contribution [QT DarkTheme][qtdarktheme-url].
+</div>
 
 ##  General view sample
 
