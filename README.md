@@ -56,7 +56,7 @@
 > Google Test (gtest) C++ testing framework to carry out and handled correctly well-structured checks ensuring the code results reliability.
 
 `Parameterized Tests:`
-- It runs multiple test cases with input checking data provided by the original author. 
+- It runs multiple test cases with vector of doubles input as checking data, provided by the work's author. 
 - It uses ASSERT_NEAR macro to compare floating-point results with a specified tolerance.
   
 `Setup and Teardown:`
