@@ -69,7 +69,7 @@
    </p>
    <div>
 
-##  General view sample
+##  Output view sample
 
 <div align="justify"> 
   <!-- <img align="right" src="https://user-images.githubusercontent.com/53323058/230650942-4c2e0ad4-2d52-46fe-aa67-8860c642e5f6.png" width="500"> -->
