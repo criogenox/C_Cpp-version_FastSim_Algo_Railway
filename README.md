@@ -76,7 +76,7 @@
 <img align="center" src="https://github.com/criogenox/C_Cpp-version_FastSim_Algo_Railway/assets/53323058/89440370-9007-457c-b303-2a713ddc8379.png">
    </p>
        <p align="center">
-Full functionalities in use:  clickable table index, independent views with their corresponding dock info.
+Test's full output: execution time, test tagging, and detailed results (especially when it fails)
   </p> 
 </div>
 
