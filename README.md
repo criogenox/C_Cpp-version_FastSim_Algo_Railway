@@ -27,31 +27,6 @@
   </p> 
    <div>
 
-## Key Methods
-
-<div align="justify">
-  <p>
-
-> Dynamic creation of dock widget for displaying information related to a specified table.
-
-`Functionalities:`
-- Checks for existing docks with the same name to prevent duplicates.
-- Restoration of closed docks to its previous geometry, keep from of creating a new ones.
-
-> Handling view size fitting in response to several resizing events (including image initial loading).
-
-`Functionality:`
-- Updates the view/scene size to fit the new dimensions generated due to mainwindow rescaling, dock's area/size changes or splitter movements.
-
-> Overriding of several mouse events for graphical managing of loaded images.
-
-`Functionalities:`
-- Handles mouse press events to dragging and panning (warning, inverted mouse buttons).
-- Focus zooming on cursor position disabling the vertical scrollbar to enhance zoom experience.
-- Handles double-click events to fit the scene within the view keeping the aspect ratio.
-   </p>
-   <div>
-
 ## Built With
 
 <div style="display: flex; flex-direction: column; align=center">
