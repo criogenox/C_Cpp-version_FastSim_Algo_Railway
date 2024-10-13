@@ -53,7 +53,7 @@
 - It compiles the test files enabling the run of unit tests according to the author's checking data.
 - It executes linked against the GoogleTest libraries (gtest_main, gmock_main) and the TARGET_LIB.
 
-> Google Test (gtest) C++ testing framework.
+> Google Test (gtest) C++ testing framework to carry out and handled correctly well-structured checks ensuring the code results reliability.
 
 `Parameterized Tests:`
 - It runs multiple test cases with input checking data provided by the original author. 
