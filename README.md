@@ -3,7 +3,7 @@
 <!-- PROJECT LOGO -->
 <div align="center">
   <a align="center">
-    <img src="https://github.com/criogenox/C_Cpp-version_FastSim_Algo_Railway/assets/53323058/e94367d0-4cd9-4e62-9d37-f2b013ddbca9.png" alt="Logo" width="500">
+    <img src="https://github.com/criogenox/C_Cpp-version_FastSim_Algo_Railway/assets/53323058/6ce23006-ff6e-46dd-b5de-56f1fbb6750b.png" alt="Logo" width="500">
   </a>
   <h3 align="center">Railway applications &#x300A; C &#x300B;</h3>
   <p align="center">
