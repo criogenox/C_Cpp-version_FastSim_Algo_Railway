@@ -16,10 +16,10 @@
 <div align="justify">
   <p>
   
-> `C++` version of Kalker's FastSim algorithm, designed for simulating rolling contact dynamics based on the simplified theory. Despite the time elapsed since its development, it efficiently calculates the forces acting on contact patch providing valuable insights for engineering simulations.
+> `C++` version of Kalker's FastSim algorithm, designed for simulating rolling contact dynamics based on the simplified theory. Despite the time elapsed since its development, it efficiently calculates the forces acting on the contact patch, providing valuable insights for engineering simulations.
 
 `Why this repo?:`
-- In order to provide a C++ version of a helpful contact algorithm, that regardless of being classic simulation code, no one shares it.
+- In order to provide a C++ version of a helpful contact algorithm, that regardless of being a classic simulation code, no one shares it.
    
    </p>
        <p align="right">
@@ -42,11 +42,11 @@
 > Google Test (gtest) C++ testing framework to carry out and handled correctly well-structured checks ensuring the code results reliability.
 
 `Parameterized Tests:`
-- It runs multiple test cases with vector of doubles input as checking data, provided by the work's author. 
+- It runs multiple test cases with a vector of doubles input as checking data, provided by the work's author. 
 - It uses ASSERT_NEAR macro to compare floating-point results with a specified tolerance.
   
 `Setup and Teardown:`
-- A method is implemented to perform any necessary initialization before running the first test, and to improve the measure of time execution.
+- A method was implemented to perform any necessary initialization before running the first test, and to improve the measure of time of execution.
 
 `Benchmarking:`
 - It includes timing functionality to measure the computation time for each test case.
@@ -54,17 +54,17 @@
 `Error Handling:`
 - The parameterized implementation ensures achieving the complete set of tests even in the event of an invalid test result.
   
-> CMake configuration to building the application: several targets for a specific role, enabling better management of source files, libraries, and testing processes.
+> CMake configuration: added several targets for a specific role, enabling better management of source files, libraries, and testing processes.
 
 `TARGET_SRC`
-- It compiles the entire source files of the project into an executable.
+- It compiles the entire source code of the project into an executable.
 
 `TARGET_LIB`
 - It creates a static library from the specified source files.
-- It is linked to the main program as entry point to test its funcionality
-
+- Its functionality testing is done by linking to the main program as entry point.
+  
 `TARGET_TEST`
-- It compiles the test files enabling the run of unit tests according to the author's checking data.
+- It compiles the test files, enabling the run of unit tests according to the author's checking data.
 - It executes linked against the GoogleTest libraries (gtest_main, gmock_main) and the TARGET_LIB.
    </p>
    <div>
