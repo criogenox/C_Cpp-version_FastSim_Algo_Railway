@@ -1,7 +1,3 @@
-# Text files
-*.md
-*.asc
-
 # Prerequisites
 *.d
 
@@ -16,6 +12,7 @@ cmake-build-release/
 cmake-build-minisizerel/
 cmake-build-debug/
 resources/
+.idea
 
 # Compiled Object files
 *.slo
@@ -46,3 +43,8 @@ resources/
 *.exe
 *.out
 *.app
+
+# Text
+*.md
+*.asc
+
