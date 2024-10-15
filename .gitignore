@@ -1,3 +1,7 @@
+# Text files
+*.md
+*.asc
+
 # Prerequisites
 *.d
 

@@ -1,6 +1,8 @@
 #include "fastsim.h"
 
-auto GetTickCount() { return std::chrono::steady_clock::now(); }
+auto GetTickCount() {
+    return std::chrono::high_resolution_clock::now();
+}
 
 int main() {
     // #########################################################################
@@ -27,17 +29,18 @@ int main() {
     //  mx=5; my=5; dy=0.4; TOL=0.09;
     //  Paper results ===> Tx=0.4530  Ty=0.8299
     // -------------------------------------------------------------------------
-    const auto startTime = ::GetTickCount();
     double Tx = 0.0, Ty = 0.0;
     constexpr double ux = 1.0, uy = -2.0, fx = 2.0, fy = 4.0, mx = 5.0, my = 5.0;
     const Inputs args{ux, uy, fx, fy, mx, my, Tx, Ty};
     const auto p = std::make_unique<Fastsim>(args);
+    const auto startTime = ::GetTickCount();
     // ---
     p->v1(0.4, 0.09);
     // ---
     const auto endTime = ::GetTickCount();
+    const std::chrono::duration<double, std::micro> elapsed_seconds{endTime - startTime};
     std::cout << "Time elapsed: "
-            << std::chrono::duration<double, std::ratio<1, 1000000> >(endTime - startTime).count()
+            << elapsed_seconds.count()
             << " microseconds"
             << std::endl;
     // ---

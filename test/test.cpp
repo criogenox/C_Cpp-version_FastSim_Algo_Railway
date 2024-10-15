@@ -3,14 +3,13 @@
 #include "fastsim.h"
 
 auto GetTickCount() {
-    return std::chrono::steady_clock::now();
+    return std::chrono::high_resolution_clock::now();
 }
 
 void bench(auto startTime, auto endTime) {
+    const std::chrono::duration<double, std::micro> elapsed_seconds{endTime - startTime};
     std::cout << "\033[0;38;5;144mComputation time elapsed: "
-            << std::chrono::duration<double, std::ratio<1, 1000000> >(endTime - startTime).count()
-            << " microseconds"
-            << std::endl;
+            << elapsed_seconds.count() << " microseconds" << std::endl;
 }
 
 // #########################################################################
@@ -39,83 +38,84 @@ void bench(auto startTime, auto endTime) {
 // -------------------------------------------------------------------------
 
 struct InputCases {
-    static auto test(const int c, double Tx, double Ty) {
+    static Inputs test(const int c, double Tx, double Ty) {
         switch (c) {
             case 0:
-            case 1: {
-                const Inputs args{0.0, -2.0, 2.0, 4.0, 5.0, 5.0, Tx, Ty};
-                return args;
-            }
-            //
+            case 1:
+                return Inputs{0.0, -2.0, 2.0, 4.0, 5.0, 5.0, Tx, Ty};
             case 2:
-            case 3: {
-                const Inputs args{1.0, -2.0, 2.0, 4.0, 5.0, 5.0, Tx, Ty};
-                return args;
-            }
-            //
-            case 4: {
-                // static double Tx = 0.0, Ty = 0.0;
-                const Inputs args{1.0, -2.0, 2.0, 1.0, 5.0, 5.0, Tx, Ty};
-                return args;
-            }
-            //
-            default: assert("Check your input data!!!");
-            // static constexpr Inputs args{0, 0, 0, 0, 0, 0, Tx, Ty};
-            // return args;
+            case 3:
+                return Inputs{1.0, -2.0, 2.0, 4.0, 5.0, 5.0, Tx, Ty};
+            case 4:
+                return Inputs{1.0, -2.0, 2.0, 1.0, 5.0, 5.0, Tx, Ty};
+            default:
+                throw std::invalid_argument("Check your input data!!!");
         }
     }
 };
 
 struct CalcCases {
     static void calc(const int c, auto &p) {
-        const auto startTime = ::GetTickCount();
         switch (c) {
             case 0:
-            case 3: {
+            case 3:
                 p->v1(0.4, 3.0);
-            }
-            break;
-            //
+                break;
             case 1:
             case 2:
-            case 4: {
+            case 4:
                 p->v1(0.4, 0.09);
-            }
-            break;
-            //
-            default: assert("Check your input data!!!");
+                break;
+            default:
+                throw std::invalid_argument("Check your input data!!!");
         }
-        const auto endTime = ::GetTickCount();
         std::cout << "\033[0;38;5;12m* TEST CASE N°: " << c << std::endl;
-        bench(startTime, endTime);
     }
 };
 
 class ForcesFxFy : public ::testing::TestWithParam<std::vector<double> > {
+protected:
+    // Static variable to track if setup has been done
+    static bool setupDone;
+
+    static void SetUpTestSuite() {
+        // Check if setup has already been performed
+        if (!setupDone) {
+            // Execute warm-up runs only once, for the first test
+            double Tx = 0.0, Ty = 0.0;
+            const auto p = std::make_unique<Fastsim>(Inputs{0.0, -2.0, 2.0, 4.0, 5.0, 5.0, Tx, Ty});
+            p->v1(0.4, 3.0);
+            setupDone = true; // Mark setup as done
+        }
+    }
 };
 
+// Initialize the static variable
+bool ForcesFxFy::setupDone = false;
 int tests = 0;
 TEST_P(ForcesFxFy, TestCase) {
-    int i = 0;
     constexpr double Tx = 0.0, Ty = 0.0;
-    const auto p = std::make_unique<Fastsim>(InputCases::test(tests, Tx, Ty));
+    auto p = std::make_unique<Fastsim>(InputCases::test(tests, Tx, Ty));
+    const auto startTime = GetTickCount();
     CalcCases::calc(tests, p);
+    const auto endTime = GetTickCount();
+    bench(startTime, endTime);
     const auto m = GetParam();
+    int i = 0; // Declare i here to avoid global state
     std::for_each(p->T.begin(), p->T.end(),
-                  [&i, &m](const double s) mutable {
-                      const int j = i;
-                      i++;
-                      ASSERT_NEAR(m[j], s, 1e-2);
+                  [&](const double s) mutable {
+                      ASSERT_NEAR(m[i++], s, 1e-2);
                   });
     tests++;
 }
 
 INSTANTIATE_TEST_SUITE_P(FastSimAlgo, ForcesFxFy,
-                         ::testing::Values(std::vector<double>{0.0, 0.1843},
-                                           std::vector<double>{0.0, 0.1850},
-                                           std::vector<double>{0.5720, 0.1838},
-                                           std::vector<double>{0.5684, 0.1857},
-                                           std::vector<double>{0.453, 0.8299}));
+                         ::testing::Values(
+                             std::vector<double>{0.0, 0.1843},
+                             std::vector<double>{0.0, 0.1850},
+                             std::vector<double>{0.5720, 0.1838},
+                             std::vector<double>{0.5684, 0.1857},
+                             std::vector<double>{0.453, 0.8299}));
 
 int main(int argc, char **argv) {
     std::cout << "\033[1;38;5;201m# C++ ver. | FASTSIM ALGORITHM FOR ROLLING CONTACT" << std::endl;
