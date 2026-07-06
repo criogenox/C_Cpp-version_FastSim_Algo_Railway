@@ -1,45 +1,68 @@
 cmake_minimum_required(VERSION 3.28)
-set(CMAKE_CXX_COMPILER "/usr/bin/clang++" CACHE STRING "C++ compiler" FORCE)
-set(PROJECT_NAME "FastSim")
-project(${PROJECT_NAME} VERSION 1.0.0 LANGUAGES CXX)
-set(default_build_type "Release")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++ -std=c++20")
-set(TARGET ${PROJECT_NAME})
-set(TARGET_SRC ${PROJECT_NAME}_src)
-set(TARGET_TEST "${PROJECT_NAME}Test")
-set(TARGET_LIB "${PROJECT_NAME}_lib")
-#-----------#-----------#-----------#
+project(FastSim VERSION 1.0.0 LANGUAGES CXX)
 
-include(FetchContent)  # (3) Gtest with linked library
-FetchContent_Declare(googletest
-        GIT_REPOSITORY https://github.com/google/googletest
-        GIT_TAG v1.14.0)
-FetchContent_MakeAvailable(googletest)
-#-----------#-----------#-----------#
+set(CMAKE_CXX_STANDARD 20)
 
-set(LIBS_PATH "${PROJECT_SOURCE_DIR}/libs")  # (2) standalone with linked library
+# Default to Release build
+if (NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Release CACHE STRING "Build type" FORCE)
+endif ()
+
+# ================== BUILD OPTIONS (switch) ==================
+option(BUILD_STATIC_LIB "Build the static library FastSim" ON)
+option(BUILD_MAIN_EXEC "Build the main executable" ON)
+option(BUILD_TESTS "Build GoogleTest suite" ON)
+
+# Paths
+set(LIBS_PATH "${PROJECT_SOURCE_DIR}/libs")
 set(HEADERS_PATH "${PROJECT_SOURCE_DIR}/headers")
 set(SRC_PATH "${PROJECT_SOURCE_DIR}/src")
-set(TEST_PATH "${PROJECT_SOURCE_DIR}/test")  # (3) Gtest with linked library
-#-----------#-----------#-----------#
+set(TEST_PATH "${PROJECT_SOURCE_DIR}/test")
 
 include_directories(${HEADERS_PATH})
-link_directories(${LIBS_PATH})  # (2) standalone with library linking
 
-file(GLOB_RECURSE CPPS "${SRC_PATH}/*.cpp")
-file(GLOB_RECURSE CPPT "${TEST_PATH}/*.cpp")  # (3) Gtest with linked library
-#-----------#-----------#-----------#
+# ====================== STATIC LIBRARY ======================
+if (BUILD_STATIC_LIB)
+    add_library(FastSim_lib STATIC ${SRC_PATH}/fastsim.cpp)
 
-add_executable(${TARGET_SRC} ${CPPS})  # (0) compilation with complete source code
-#-----------#-----------#-----------#
+    set_target_properties(FastSim_lib PROPERTIES
+            ARCHIVE_OUTPUT_DIRECTORY ${LIBS_PATH}
+            OUTPUT_NAME "fastsim"
+            EXPORT_NAME FastSim
+    )
 
-add_library(${TARGET_LIB} STATIC ${SRC_PATH}/fastsim.cpp)  # (1) library compilation
-add_executable(${TARGET} ${SRC_PATH}/main.cpp)   # (1) main run with linked library
-#                                                  (2) standalone with linked library
-target_link_libraries(${TARGET} ${TARGET_LIB})   # (1) main run with linked library
-#                                                  (2) standalone with linked library
-#-----------#-----------#-----------#
+    # Install library
+    install(TARGETS FastSim_lib
+            EXPORT FastSimTargets
+            ARCHIVE DESTINATION ${LIBS_PATH}
+    )
+endif ()
 
-add_executable(${TARGET_TEST} ${CPPT}) # (3) Gtest with linked library
-target_link_libraries(${TARGET_TEST} ${TARGET_LIB} gtest_main gmock_main)
-#-----------#-----------#-----------#
+# ==================== MAIN EXECUTABLE =====================
+if (BUILD_MAIN_EXEC)
+    add_executable(FastSim ${SRC_PATH}/main.cpp)
+    if (BUILD_STATIC_LIB)
+        target_link_libraries(FastSim PRIVATE FastSim_lib)
+    endif ()
+endif ()
+
+# ====================== GOOGLE TESTS ======================
+if (BUILD_TESTS)
+    include(FetchContent)
+    FetchContent_Declare(googletest
+            GIT_REPOSITORY https://github.com/google/googletest
+            GIT_TAG v1.14.0)
+
+    set(INSTALL_GTEST OFF CACHE BOOL "" FORCE)
+
+    FetchContent_MakeAvailable(googletest)
+
+    file(GLOB_RECURSE TEST_SOURCES "${TEST_PATH}/*.cpp")
+    add_executable(FastSimTest ${TEST_SOURCES})
+
+    target_link_libraries(FastSimTest PRIVATE FastSim_lib gtest_main)
+
+    include(GoogleTest)
+    enable_testing()
+    gtest_discover_tests(FastSimTest)
+endif ()
