@@ -54,18 +54,15 @@
 `Error Handling:`
 - The parameterized implementation ensures the execution of the complete tests set, even in the event of an invalid test result.
   
-> CMake configuration: added several targets for a specific role, enabling better management of source files, libraries, and testing processes.
+> CMake configuration: added several targets for a specific role, enabling better management of library compilation, and testing process.
 
-`TARGET_SRC`
-- It compiles the entire source code of the project into an executable.
-
-`TARGET_LIB`
+`BUILD_STATIC_LIB`
 - It creates a static library from the specified source files.
 - Its functionality testing is done by linking to the main program as entry point.
   
-`TARGET_TEST`
+`BUILD_TESTS`
 - It compiles the test files, enabling the run of unit tests according to the author's checking data.
-- It executes linked against the GoogleTest libraries (gtest_main, gmock_main) and the TARGET_LIB.
+- It executes linked against the GoogleTest libraries (gtest_main) and the previously compiled libray.
    </p>
    <div>
 
@@ -75,7 +72,7 @@
 
 <div align="justify"> 
   <!-- <img align="right" src="https://user-images.githubusercontent.com/53323058/230650942-4c2e0ad4-2d52-46fe-aa67-8860c642e5f6.png" width="500"> -->
-<img align="center" src="https://github.com/criogenox/C_Cpp-version_FastSim_Algo_Railway/assets/53323058/41b73459-f5b6-4efe-b6f5-b74f9c42cdc9.png">
+<img align="center" src="https://github.com/criogenox/C_Cpp-version_FastSim_Algo_Railway/assets/53323058/d54d2a31-6bb1-4d48-a15d-85d8fb201960.png">
    </p>
        <p align="center">
 Test's full output: execution time, test tagging, and detailed results (especially when it fails)
